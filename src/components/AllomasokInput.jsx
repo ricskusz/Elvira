@@ -1,6 +1,7 @@
 import { useContext, useState} from "react";
 import TelepulesekContext from "../context/TelepulesekContext";
 import MenetrendContext from "../context/MenetrendContext";
+import Kezdoadatok from "./Kezdoadatok";
 
 const AllomasokInput = () => {
 
@@ -66,6 +67,7 @@ const AllomasokInput = () => {
         </div>
         <button type="submit" className="btn">Keresés</button>
       </form>
+      <Kezdoadatok adatok={menetrend} />
     </div>
   );
 };
