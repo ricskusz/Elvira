@@ -5,17 +5,21 @@ const MenetrendContext = createContext();
 export const MenetrendProvider = ({children}) => {
 
     const [menetrend, setMenetrend] = useState({});
+    const [kiindulopont, setKindulopont] = useState("");
+    const [celalomas, setCelallomas] = useState("");
 
-    const getMenetrend=async (from, to)=>{
-        const response=await fetch('https://apiv2.oroszi.net/elvira?from=B%C3%A9k%C3%A9scsaba&to=Gyula');
+    const getMenetrend = async () => {
 
-        const valasz=await response.json();
+        const response = await fetch(`https://apiv2.oroszi.net/elvira?from=${kiindulopont}&to=${celalomas}`);
+        const valasz = await response.json();
         setMenetrend(valasz);
-
     }
+
     return <MenetrendContext.Provider value={
         {
-            menetrend
+            menetrend,
+            setKindulopont,
+            setCelallomas
         }
     }>{children}</MenetrendContext.Provider>
 }
