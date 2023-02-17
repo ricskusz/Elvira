@@ -42,9 +42,9 @@ const AllomasokInput = () => {
                 onChange={writeData}
                 value={formData.indulas}>
                 <option disabled selected>Válasszon kiinduló pontot</option>
-                {telepulesek.split(",").map((telepules) => (
-                    <option value={getSubString(telepules, '"', '"')}>
-                    {getSubString(telepules, '"', '"')}
+                {telepulesek.map((telepules) => (
+                    <option value={telepules}>
+                    {telepules}
                     </option>
                 ))}
             </select>
@@ -58,9 +58,9 @@ const AllomasokInput = () => {
                 value={formData.celallomas}
             >
                 <option disabled selected>Válasszon célállomás</option>
-                {telepulesek.split(",").map((telepules) => (
-                    <option value={getSubString(telepules, '"', '"')}>
-                    {getSubString(telepules, '"', '"')}
+                {telepulesek.map((telepules) => (
+                    <option value={telepules}>
+                    {telepules}
                     </option>
                 ))}
             </select>
