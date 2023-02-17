@@ -4,14 +4,12 @@ import MenetrendContext from "../context/MenetrendContext";
 
 const AllomasokInput = () => {
 
-    const formTemplate = {
+    const [formData, setFormData] = useState({
         indulas: "",
         celallomas: ""
-    }
+    });
 
-    const [formData, setFormData] = useState(formTemplate);
-
-    const {setVegpontok, getMenetrend} = useContext(MenetrendContext);
+    const {getMenetrend, menetrend} = useContext(MenetrendContext);
     const { telepulesek } = useContext(TelepulesekContext);
 
     const getSubString = (string, char1, char2) => {
@@ -21,18 +19,14 @@ const AllomasokInput = () => {
         );
     };
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.id]: e.target.value,
-        });
-        setVegpontok(formData);
-    };
+    const writeData = (e) => {
+        setFormData((prevState) => ({...prevState, [e.target.id]:e.target.value}));
+    }
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        getMenetrend();
-        setFormData(formTemplate);
+        getMenetrend(formData);
+        console.log(menetrend);
     }
 
 
@@ -44,7 +38,7 @@ const AllomasokInput = () => {
             <select 
                 className="select select-bordered w-full max-w-xs"
                 id="indulas"
-                onChange={handleChange}
+                onChange={writeData}
                 value={formData.indulas}>
                 <option disabled selected>Válasszon kiinduló pontot</option>
                 {telepulesek.split(",").map((telepules) => (
@@ -59,7 +53,7 @@ const AllomasokInput = () => {
             <select 
                 className="select select-bordered w-full max-w-xs"
                 id="celallomas"
-                onChange={handleChange}
+                onChange={writeData}
                 value={formData.celallomas}
             >
                 <option disabled selected>Válasszon célállomás</option>
