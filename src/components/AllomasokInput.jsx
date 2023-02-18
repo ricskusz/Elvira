@@ -13,13 +13,6 @@ const AllomasokInput = () => {
     const {getMenetrend, menetrend} = useContext(MenetrendContext);
     const { telepulesek } = useContext(TelepulesekContext);
 
-    const getSubString = (string, char1, char2) => {
-        return string.substring(
-            string.indexOf(char1) + 1,
-            string.lastIndexOf(char2)
-        );
-    };
-
     const writeData = (e) => {
         setFormData((prevState) => ({...prevState, [e.target.id]:e.target.value}));
     }
