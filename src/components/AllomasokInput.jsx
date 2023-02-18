@@ -1,4 +1,4 @@
-import { useContext, useState} from "react";
+import { useContext, useState } from "react";
 import TelepulesekContext from "../context/TelepulesekContext";
 import MenetrendContext from "../context/MenetrendContext";
 import Kezdoadatok from "./Kezdoadatok";
@@ -10,11 +10,11 @@ const AllomasokInput = () => {
         celallomas: ""
     });
 
-    const {getMenetrend, menetrend} = useContext(MenetrendContext);
+    const { getMenetrend, menetrend } = useContext(MenetrendContext);
     const { telepulesek } = useContext(TelepulesekContext);
 
     const writeData = (e) => {
-        setFormData((prevState) => ({...prevState, [e.target.id]:e.target.value}));
+        setFormData((prevState) => ({ ...prevState, [e.target.id]: e.target.value }));
     }
 
     const onSubmit = async (e) => {
@@ -24,44 +24,52 @@ const AllomasokInput = () => {
     }
 
 
-  return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <div className="d-flex flex-col">
-            <label htmlFor="indulas">Kiinduló pont</label>
-            <select 
-                className="select select-bordered w-full max-w-xs"
-                id="indulas"
-                onChange={writeData}
-                value={formData.indulas}>
-                <option disabled selected>Válasszon kiinduló pontot</option>
-                {telepulesek.map((telepules) => (
-                    <option value={telepules}>
-                    {telepules}
-                    </option>
-                ))}
-            </select>
-        </div>
-        <div className="d-flex flex-col">
-            <label htmlFor="celallomas">Célállomás</label>
-            <select 
-                className="select select-bordered w-full max-w-xs"
-                id="celallomas"
-                onChange={writeData}
-                value={formData.celallomas}
-            >
-                <option disabled selected>Válasszon célállomás</option>
-                {telepulesek.map((telepules) => (
-                    <option value={telepules}>
-                    {telepules}
-                    </option>
-                ))}
-            </select>
-        </div>
-        <button type="submit" className="btn">Keresés</button>
-      </form>
-    </div>
-  );
+    return (
+        <form onSubmit={onSubmit}>
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card-body">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Indulás</span>
+                        </label>
+                        <select
+                            className="select select-bordered w-full max-w-xs"
+                            id="indulas"
+                            onChange={writeData}
+                            value={formData.indulas}>
+                            <option disabled selected>Válasszon kiinduló pontot</option>
+                            {telepulesek.map((telepules) => (
+                                <option value={telepules}>
+                                    {telepules}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Célállomás</span>
+                        </label>
+                        <select
+                            className="select select-bordered w-full max-w-xs"
+                            id="celallomas"
+                            onChange={writeData}
+                            value={formData.celallomas}
+                        >
+                            <option disabled selected>Válasszon célállomás</option>
+                            {telepulesek.map((telepules) => (
+                                <option value={telepules}>
+                                    {telepules}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="form-control mt-6">
+                        <button className="btn btn-primary" type="submit">Keresés</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    );
 };
 
 export default AllomasokInput;

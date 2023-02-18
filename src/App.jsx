@@ -10,7 +10,6 @@ function App() {
   return (
     <TelepulesProvider>
        <MenetrendProvider>
-        <AllomasokInput />
         <Main />
         <Footer />
     </MenetrendProvider>
