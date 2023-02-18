@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import TelepulesekContext from "../context/TelepulesekContext";
 import MenetrendContext from "../context/MenetrendContext";
-import Kezdoadatok from "./Kezdoadatok";
 
 const AllomasokInput = () => {
 
@@ -10,7 +9,7 @@ const AllomasokInput = () => {
         celallomas: ""
     });
 
-    const { getMenetrend, menetrend } = useContext(MenetrendContext);
+    const { getMenetrend} = useContext(MenetrendContext);
     const { telepulesek } = useContext(TelepulesekContext);
 
     const writeData = (e) => {
@@ -20,7 +19,6 @@ const AllomasokInput = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         getMenetrend(formData);
-        console.log(menetrend);
     }
 
 
@@ -38,8 +36,8 @@ const AllomasokInput = () => {
                             onChange={writeData}
                             value={formData.indulas}>
                             <option disabled selected>Válasszon kiinduló pontot</option>
-                            {telepulesek.map((telepules) => (
-                                <option value={telepules}>
+                            {telepulesek.map((telepules, index) => (
+                                <option key={index} value={telepules}>
                                     {telepules}
                                 </option>
                             ))}
@@ -56,8 +54,8 @@ const AllomasokInput = () => {
                             value={formData.celallomas}
                         >
                             <option disabled selected>Válasszon célállomás</option>
-                            {telepulesek.map((telepules) => (
-                                <option value={telepules}>
+                            {telepulesek.map((telepules, index) => (
+                                <option key={index} value={telepules}>
                                     {telepules}
                                 </option>
                             ))}
