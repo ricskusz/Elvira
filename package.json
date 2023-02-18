@@ -1,5 +1,5 @@
 {
-  "name": "user_login_frontend",
+  "name": "menetrend_listazo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,7 @@
   "dependencies": {
     "daisyui": "^2.47.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.2.0", 
     "react-router-dom": "^6.7.0"
   },
   "devDependencies": {
