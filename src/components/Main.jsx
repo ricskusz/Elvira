@@ -21,7 +21,9 @@ const Main = () => {
                             loading ? <button className="btn btn-success loading"></button>
                             :
                             <div>
-                                <AnchorLink href="#talalatok"><button className="btn btn-active btn-success">Találatok ({menetrend.length})</button></AnchorLink>
+                                <AnchorLink href="#talalatok"><button className="btn btn-active btn-success">Találatok {
+                                    menetrend.length ? `(${menetrend.length})` : ""
+                                }</button></AnchorLink>
                             </div>
                         }
                     </div>
@@ -29,6 +31,11 @@ const Main = () => {
             </div>
             <div id="talalatok" className="my-5 text-center">
                 <h1 className="text-3xl font-bold">{route} ({menetrend.length} járat)</h1>
+                <div className="flex flex-row justify-between mt-5">
+                    <div>Indulás</div>
+                    <div>Átszállás</div>
+                    <div>Érkezés</div>
+                </div>
 
                 <Menetrend adatok={menetrend}/>
             </div>
