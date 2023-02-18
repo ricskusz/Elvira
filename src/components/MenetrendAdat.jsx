@@ -6,7 +6,7 @@ const MenetrendAdat = ({rekord}) => {
           <h3 className="text-xl font-bold">{rekord.starttime}</h3>
         </div>
         <div>
-          <h3 className="text-xl font-semibold">{rekord.change}</h3>
+          <h3 className="text-xl font-semibold">{rekord.change > 0 ? rekord.change : 0}</h3>
         </div>
         <div>
           <h3 className="text-xl font-bold">{rekord.destinationtime}</h3>
