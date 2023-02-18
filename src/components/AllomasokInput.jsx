@@ -60,7 +60,6 @@ const AllomasokInput = () => {
         </div>
         <button type="submit" className="btn">Keresés</button>
       </form>
-      <Kezdoadatok adatok={menetrend} />
     </div>
   );
 };
