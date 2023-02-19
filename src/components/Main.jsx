@@ -22,23 +22,28 @@ const Main = () => {
                             :
                             <div>
                                 <AnchorLink href="#talalatok"><button className="btn btn-active btn-success">Találatok {
-                                    menetrend.length ? `(${menetrend.length})` : ""
+                                    menetrend !== null ? `(${menetrend.length})` : ""
                                 }</button></AnchorLink>
                             </div>
                         }
                     </div>
                 </div>
             </div>
-            <div id="talalatok" className="my-5 text-center">
-                <h1 className="text-3xl font-bold">{route} ({menetrend.length} járat)</h1>
-                <p className="mb-5">Bővebb információért kattintson a járatra</p>
-                <div className="flex flex-row justify-between mt-5">
-                    <div>Indulás</div>
-                    <div>Átszállás</div>
-                    <div>Érkezés</div>
-                </div>
-                <Menetrend adatok={menetrend}/>
+            {
+                menetrend === null ? 
+                <></>
+                : 
+                <div id="talalatok" className="my-5 text-center">
+                    <h1 className="text-3xl font-bold">{route} ({menetrend !== null ? menetrend.length : ""} járat)</h1>
+                    <p className="mb-5">Bővebb információért kattintson a járatra</p>
+                    <div className="flex flex-row justify-between mt-5">
+                        <div>Indulás</div>
+                        <div>Átszállás</div>
+                        <div>Érkezés</div>
+                    </div>
+                    <Menetrend adatok={menetrend} />
             </div>
+            }
         </div>
     )
 }
