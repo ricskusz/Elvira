@@ -9,7 +9,7 @@ const AllomasokInput = () => {
         celallomas: ""
     });
 
-    const { getMenetrend} = useContext(MenetrendContext);
+    const { getMenetrend, menetrend} = useContext(MenetrendContext);
     const { telepulesek } = useContext(TelepulesekContext);
 
     const writeData = (e) => {
