@@ -13,7 +13,7 @@ const Main = () => {
     return (
         <div className="flex flex-col justify-center items-center">
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="hero-content flex-col lg:flex-row" id="kereses">
                     <AllomasokInput />
                     <div className="text-center lg:text-left">
                         <FooldalSzoveg />
@@ -42,7 +42,8 @@ const Main = () => {
                         <div>Érkezés</div>
                     </div>
                     <Menetrend adatok={menetrend} />
-            </div>
+                    <AnchorLink href="#indulas"><button className="btn btn-primary">Vissza a kereséshez</button></AnchorLink>    
+                </div>
             }
         </div>
     )
