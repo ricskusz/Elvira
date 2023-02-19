@@ -11,7 +11,7 @@ export const MenetrendProvider = ({children}) => {
 
     const getMenetrend = async (vegpontok) => {
 
-        if(vegpontok.indulas === vegpontok.celallomas) return {message: "Nem lehet ugyan az a kiindulási pont mint a célállomás!"}
+        if(vegpontok.indulas == vegpontok.celallomas) return "Nem lehet ugyan az a kiindulási pont mint a célállomás!";
 
         setLoading(prev => !prev);
         const response = await fetch(`https://apiv2.oroszi.net/elvira?from=${vegpontok.indulas}&to=${vegpontok.celallomas}`);
@@ -22,6 +22,9 @@ export const MenetrendProvider = ({children}) => {
         } else {
             setMenetrend(timetable);
         }
+
+        if(timetable.length == 0) return "Ezen a napon nem közlekedik ilyen vonat!";
+
 
 
         setDatum(date);

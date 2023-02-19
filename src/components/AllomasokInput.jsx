@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import TelepulesekContext from "../context/TelepulesekContext";
 import MenetrendContext from "../context/MenetrendContext";
+import {toast} from 'react-toastify';
 
 const AllomasokInput = () => {
 
@@ -18,7 +19,10 @@ const AllomasokInput = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        getMenetrend(formData);
+        const message = await(getMenetrend(formData));
+        if(message) {
+            toast.error(message, {position: toast.POSITION.TOP_LEFT});
+        }
     }
 
 
